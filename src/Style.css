@@ -1,0 +1,418 @@
+/* 
+# Front-end Style Guide
+
+## Layout
+
+The designs were created to the following widths:
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Marine blue: hsl(213, 96%, 18%)
+- Purplish blue: hsl(243, 100%, 62%)
+- Pastel blue: hsl(228, 100%, 84%)
+- Light blue: hsl(206, 94%, 87%)
+- Strawberry red: hsl(354, 84%, 57%)
+
+### Neutral
+
+- Cool gray: hsl(231, 11%, 63%)
+- Light gray: hsl(229, 24%, 87%)
+- Magnolia: hsl(217, 100%, 97%)
+- Alabaster: hsl(231, 100%, 99%)
+- White: hsl(0, 0%, 100%)
+
+## Typography
+
+### Body Copy
+
+- Font size (paragraph): 16px
+
+### Font
+
+- Family: [Ubuntu](https://fonts.google.com/specimen/Ubuntu)
+- Weights: 400, 500, 700
+*/
+
+/* GENERAL */
+@font-face {
+  font-family: "Ubuntu";
+  src: url(assets/fonts/Ubuntu-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url(assets/fonts/Ubuntu-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url(assets/fonts/Ubuntu-Bold.ttf);
+  font-weight: 700;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 50%;
+  font-family: "Ubuntu", sans-serif;
+  background-color: hsl(217, 100%, 97%);
+}
+.d-none {
+  display: none !important;
+}
+.invisible {
+  opacity: 0;
+  visibility: hidden;
+}
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+.form-heading-1 {
+  font-size: 2.4rem;
+}
+.form-heading-1,
+.heading-3 {
+  color: hsl(213, 96%, 18%);
+}
+.heading-3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.choice-description {
+  font-size: 1.2rem;
+  color: hsl(231, 11%, 63%);
+}
+.form-text {
+  font-size: 2rem;
+  color: hsl(231, 11%, 63%);
+  line-height: 1.2;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  border-radius: 10px;
+  overflow: hidden;
+
+  background-color: hsl(217, 100%, 97%);
+}
+.form-steps {
+  flex: 0 0 150px;
+  background-image: url(./assets/images/bg-sidebar-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 4.8rem;
+}
+.form-nav--list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+.form-nav--link {
+  text-decoration: none;
+}
+.form-nav--link--number {
+  display: inline-block;
+  width: 3.6rem;
+  height: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 0.1rem hsl(0, 0%, 100%);
+  font-size: 1.6rem;
+  border-radius: 50%;
+}
+.form-nav--link:hover {
+  cursor: default;
+}
+.step-text-container {
+  display: none;
+}
+.form-nav--link:link,
+.form-nav--link:visited {
+  color: hsl(0, 0%, 100%);
+}
+.form-nav--link.active .form-nav--link--number {
+  background-color: hsl(206, 94%, 87%);
+  color: hsl(213, 96%, 18%);
+  box-shadow: none;
+}
+.form-info-section {
+  flex: 1 0;
+  background-color: hsl(217, 100%, 97%);
+  padding: 2.4rem 1.2rem;
+  position: relative;
+}
+.form-info--content-container {
+  width: 90%;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  background-color: hsl(0, 0%, 100%);
+  padding: 3.6rem 2.8rem;
+  border-radius: 0.7rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -55px);
+}
+
+.form-info--content-container header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+/* FIRST PAGE */
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.input-container label {
+  color: hsl(213, 96%, 18%);
+  font-size: 1.4rem;
+}
+.input {
+  padding: 1.2rem 1.6rem;
+  font-weight: 500;
+  border: none;
+  border: solid 1px hsl(229, 24%, 87%);
+  border-radius: 0.4rem;
+}
+.input:focus {
+  outline: solid 2px hsl(228, 100%, 84%);
+}
+.input:invalid {
+  outline: solid 2px hsl(0, 100%, 71%);
+}
+.form-footer {
+  background-color: hsl(0, 0%, 100%);
+  width: 100%;
+  padding: 2.4rem 2rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.form-footer--container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.change-step {
+  display: inline-block;
+  color: hsl(231, 11%, 63%);
+  padding: 1.2rem 1.6rem;
+  text-decoration: none;
+  font-size: 2rem;
+  border-radius: 0.3rem;
+}
+.change-step:last-child {
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(213, 96%, 18%);
+  margin-left: auto;
+}
+/* SECOND PAGE */
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  height: fit-content;
+}
+.choice-container {
+  display: flex;
+  gap: 1.2rem;
+  width: 100%;
+  box-shadow: inset 0 0 0 1px hsl(229, 24%, 87%);
+  padding: 1.6rem;
+  align-items: center;
+  border-radius: 0.7rem;
+}
+.choice-container:hover {
+  cursor: pointer;
+}
+.choice-container.active {
+  box-shadow: inset 0 0 0 1px hsl(213, 96%, 18%);
+  background-color: hsl(217, 100%, 97%);
+}
+.choice-description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.choice-img {
+  width: 4rem;
+}
+.plan-switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  padding: 1.4rem;
+  margin-top: 1.2rem;
+  background-color: hsl(217, 100%, 97%);
+  border-radius: 0.7rem;
+}
+.plan-switch {
+  display: flex;
+  background-color: hsl(213, 96%, 18%);
+  width: 3.2rem;
+  border-radius: 1rem;
+  position: relative;
+  padding: 0.4rem;
+}
+.plan-switch input[type="checkbox"] {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 100%;
+  opacity: 0%;
+}
+.plan-switch input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+.plan-switch--button {
+  display: inline-block;
+  height: 1rem;
+  aspect-ratio: 1/1;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 50%;
+}
+.plan-switch input[type="checkbox"]:checked + .plan-switch--button {
+  margin-left: auto;
+}
+.plan-switch-period {
+  font-size: 1.4rem;
+  color: hsl(231, 11%, 63%);
+}
+.plan-switch-period.active {
+  color: hsl(213, 96%, 18%);
+}
+.price {
+  margin-left: auto;
+  font-size: 1.4rem;
+  color: hsl(243, 100%, 62%);
+}
+.step-3 .input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.input-container input[type="checkbox"] {
+  width: fit-content;
+  position: absolute;
+  width: 2.1rem;
+  opacity: 0;
+}
+.checkbox-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  aspect-ratio: 1/1;
+  box-shadow: inset 0 0 0 1px hsl(231, 11%, 63%);
+  border-radius: 0.2rem;
+}
+.input-container input[type="checkbox"]:checked + .checkbox-style {
+  background-color: hsl(243, 100%, 62%);
+}
+.checkbox-mark {
+  display: inline-block;
+  color: hsl(243, 100%, 62%);
+  font-size: 2rem;
+  color: hsl(0, 0%, 100%);
+}
+/* Step 4 */
+.step-4 .choices-container {
+  background-color: hsl(217, 100%, 97%);
+  border-radius: 0.7rem;
+  padding: 1.8rem 1.6rem;
+}
+.plan-container {
+  padding-bottom: 1.2rem;
+  border-bottom: solid 1px hsl(229, 24%, 87%);
+  display: flex;
+  align-items: center;
+}
+.plan-container--text-container {
+}
+.change-plan-link {
+  display: inline-block;
+  font-size: 1.4rem;
+  text-decoration: underline;
+  margin-top: 0.4rem;
+}
+.change-plan-link:active,
+.change-plan-link:visited {
+  color: hsl(231, 11%, 63%);
+}
+.plan-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: hsl(213, 96%, 18%);
+  margin-left: auto;
+}
+.add-on {
+  flex: 1 0;
+  display: flex;
+}
+.add-on .form-text {
+  font-size: 1.6rem;
+}
+.add-on .plan-price {
+  font-weight: 400;
+}
+.add-ons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.total-container {
+  display: flex;
+  align-items: center;
+  padding: 0 2.4rem;
+}
+.total {
+  color: hsl(231, 11%, 63%);
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.total-price {
+  display: inline-block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-left: auto !important;
+  color: hsl(243, 100%, 62%);
+}
+.step-5 .form-heading-1 {
+  text-align: center;
+}
+.step-5 .form-text {
+  text-align: center;
+  padding: 0 5rem;
+}
+.step-5 img {
+  width: 6.2rem;
+  margin: 0 auto;
+  margin-top: 6.4rem;
+}
