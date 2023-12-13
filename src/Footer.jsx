@@ -37,8 +37,17 @@ export default function Footer({ step, setStep, name, email, number }) {
         >
           Go Back
         </a>
-        <a href="#" className="change-step" onClick={() => increaseStep()}>
-          Next Step
+        <a
+          href="#"
+          className="change-step"
+          onClick={() => increaseStep()}
+          style={
+            step !== 3
+              ? { backgroundColor: "hsl(213, 96%, 18%)" }
+              : { backgroundColor: "hsl(243, 100%, 62%)" }
+          }
+        >
+          {step !== 3 ? "Next Step" : "Confirm"}
         </a>
       </div>
     </footer>
